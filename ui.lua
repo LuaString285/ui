@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 local ImportGlobals
 
 
@@ -8362,7 +8350,12 @@ local ClosureBindings = {
 					description = properties.description or properties.Description,
 					forgetState = properties.forgetState or properties.ForgetState or tab.forgetState,
 
-					range = properties.range or properties.Range or { 0, 100 },
+					range = properties.range
+						or properties.Range
+						or {
+							properties.min or properties.Min or 0,
+							properties.max or properties.Max or 10000000,
+						},
 					increment = properties.increment or properties.Increment or 1,
 					suffix = properties.suffix or properties.Suffix or "",
 
@@ -15625,6 +15618,8 @@ local ClosureBindings = {
 				icon: (string | number)?,
 				flag: string?,
 				range: { number }?,
+				min: number?,
+				max: number?,
 				increment: number?,
 				value: number?,
 				suffix: string?,
